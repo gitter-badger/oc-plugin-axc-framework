@@ -1,4 +1,3 @@
-axc-framework-plugin
-====================
+# oc-plugin-axc-framework
 
-AxC Framework Plugin for OctoberCMS
+> AxC Framework Plugin for OctoberCMS.
