@@ -1,0 +1,30 @@
+<div data-control="toolbar">
+	<div class="btn-group">
+		<button class="btn btn-warning oc-icon-magic" <?= !$controller->widget->list->model->onlyTrashed()->get()->isEmpty() ? : 'disabled="disabled"' ?>
+			data-request="onEmptyDeleted" data-request-confirm="<?= trans('backend::lang.form.action_confirm') ?>"
+			data-stripe-load-indicator><?= trans('axc.framework::lang.system.empty.label') ?></button>
+	</div>
+
+	<div class="btn-group">
+		<button class="btn-trash btn btn-success oc-icon-undo" disabled="disabled"
+			onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+			data-request="onRestoreDeleted" data-request-success="$('.btn-trash').attr('disabled, true')"
+			data-trigger-type="enable" data-trigger=".control-list input[type=checkbox]" data-trigger-condition="checked"
+			data-stripe-load-indicator><?= trans('axc.framework::lang.system.restore.label') ?></button>
+
+		<button class="btn-trash btn btn-danger oc-icon-fire" disabled="disabled"
+			onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })" 
+			data-request="onPermanentlyDeleted" data-request-confirm="<?= trans('backend::lang.form.action_confirm') ?>" data-request-success="$('.btn-trash').attr('disabled, true')"
+			data-trigger-type="enable" data-trigger=".control-list input[type=checkbox]" data-trigger-condition="checked"
+			data-stripe-load-indicator><?= trans('axc.framework::lang.system.permamently_delete.label') ?></button>
+	</div>
+
+
+	<script>
+		$(function ()
+		{
+			if ($('.control-list tbody input[type=checkbox]').length == 0)
+				$('.control-list thead th.list-checkbox').css('border-right', 'none').find('div').remove();
+		});
+	</script>
+</div>

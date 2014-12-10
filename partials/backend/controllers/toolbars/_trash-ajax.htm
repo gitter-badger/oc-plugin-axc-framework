@@ -1,0 +1,21 @@
+<div class="btn-group">
+	<button id="<?= $controller->id ?>-show-deleted" class="btn btn-primary oc-icon-trash"
+		data-request="onShowDeleted" data-request-success="$('#<?= $controller->id ?>-show-deleted').hide(); $('.btn-trash').removeClass('hidden').show()"
+		data-stripe-load-indicator><?= trans('axc.framework::lang.system.delete.show') ?></button>
+
+	<button id="<?= $controller->id ?>-hide-deleted" class="btn-trash btn btn-primary oc-icon-trash-o hidden"
+		data-request="onHideDeleted" data-request-success="$('.btn-trash').hide(); $('#<?= $controller->id ?>-show-deleted').show()"
+		data-stripe-load-indicator><?= trans('axc.framework::lang.system.delete.hide') ?></button>
+
+	<button id="<?= $controller->id ?>-restore-deleted" class="btn-trash btn btn-success oc-icon-undo hidden" disabled="disabled"
+		onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+		data-request="onRestoreDeleted" data-request-success="$('.btn-trash').attr('disabled, true')"
+		data-trigger-type="enable" data-trigger=".control-list tbody input[type=checkbox]" data-trigger-condition="checked"
+		data-stripe-load-indicator><?= trans('axc.framework::lang.system.restore.label') ?></button>
+
+	<button id="<?= $controller->id ?>-force-deleted" class="btn-trash btn btn-danger oc-icon-fire hidden" disabled="disabled"
+		onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })" 
+		data-request="onPermanentlyDeleted" data-request-confirm="<?= trans('backend::lang.form.action_confirm') ?>" data-request-success="$('.btn-trash').attr('disabled, true')"
+		data-trigger-type="enable" data-trigger=".control-list tbody input[type=checkbox]" data-trigger-condition="checked"
+		data-stripe-load-indicator><?= trans('axc.framework::lang.system.permamently_delete.label') ?></button>
+</div>

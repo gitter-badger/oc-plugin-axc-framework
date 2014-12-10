@@ -1,0 +1,19 @@
+<?
+	$params = @$column->config['axc-params'];
+	$width = @$params['width']; 
+	$height = @$params['height'];
+	if (!$width || !$height)
+	{
+		if ( !@$params['settingsModel'] ) throw new Exception("Error Processing Request", 1);
+		if ( !@$params['controller'] ) throw new Exception("Error Processing Request", 1);
+		$settings_model = @$params['settingsModel'];
+		$controller = @$param['controller'];
+		if (!$width) $width = $settings_model::get("{$controller}_image_width");
+		if (!$height) $height = $settings_model::get("{$controller}_image_height");
+	}
+	$title = trans( @$params['title'] ? :'axc.framework::lang.columns.imageTitle' );
+	$css_class = @$params['cssClass'] ? : 'img-thumbnail';
+
+	$image = \AxC\Framework\Helpers\ImageField::thumb($value, $width, $height, \AxC\Framework\Helpers\ImageField::MODE_CROP);
+?>
+<img src="<?= $image ?>" alt="<?= $title ?>" title="<?= $title ?>" class="<?= $css_class ?>" />

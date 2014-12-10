@@ -1,0 +1,28 @@
+<? include_once(__DIR__ .'/_breadcrumb.htm') ?>
+
+<?= Form::open(['class'=>'layout-item stretch layout-column']) ?>
+	<?= $controller->formRender() ?>
+	<? if ( isset($controller->relationName) ): ?>
+		<?= $controller->relationRender($controller->relationName) ?>
+	<? endif ?>
+
+	<div class="form-buttons layout-item fix">
+		<div class="loading-indicator-container">
+			<button type="button" data-request="onSave" data-request-data="redirect:false" data-hotkey="ctrl+s, cmd+s" class="btn btn-primary"
+				data-load-indicator="<?= trans( 'backend::lang.form.saving_name', ['name' => $indexTitle] ) ?>">
+				<?= trans('backend::lang.form.save') ?>
+			</button>
+			<button type="button" data-request="onSave" data-request-data="close:true" data-hotkey="ctrl+enter, cmd+enter" class="btn btn-default"
+				data-load-indicator="<?= trans( 'backend::lang.form.saving_name', ['name' => $indexTitle] ) ?>">
+				<?= trans('backend::lang.form.save_and_close') ?>
+			</button>
+			<button type="button" class="oc-icon-trash-o btn-icon danger pull-right" data-request="onDelete"
+				data-request-confirm="<?= trans('backend::lang.form.action_confirm') ?>"
+				data-load-indicator="<?= trans( 'backend::lang.form.deleting_name', ['name' => $indexTitle] ) ?>">
+			</button>
+			<span class="btn-text">
+				or <a href="<?= Backend::url($cancelURL) ?>"><?= trans('backend::lang.form.cancel') ?></a>
+			</span>
+		</div>
+	</div>
+<?= Form::close() ?>

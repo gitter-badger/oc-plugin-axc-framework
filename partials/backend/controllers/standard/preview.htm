@@ -1,0 +1,6 @@
+<? include_once(__DIR__ .'/_breadcrumb.htm') ?>
+
+<?= $controller->formRenderPreview() ?>
+<? if ( isset($controller->relationName) ): ?>
+	<?= $controller->relationRender($controller->relationName) ?>
+<? endif ?>

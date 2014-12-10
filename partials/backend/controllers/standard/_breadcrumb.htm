@@ -1,0 +1,7 @@
+<? Block::put('breadcrumb') ?> <ul>
+		<? if ( $controller->pageTitle != trans($indexTitle) ): ?>
+			<li><a href="<?= Backend::url($cancelURL) ?>"><?= $indexTitle ?></a></li>
+		<? endif ?>
+		<li><?= $controller->pageTitle ?></li>
+	</ul>
+<? Block::endPut() ?>

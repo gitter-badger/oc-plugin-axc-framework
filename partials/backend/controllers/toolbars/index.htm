@@ -1,0 +1,19 @@
+<div data-control="toolbar">
+	<div class="btn-group">
+		<a href="<?= Backend::url("$cancelURL/create") ?>" class="btn btn-success oc-icon-plus"><?= trans('axc.framework::lang.system.new') ?></a>
+
+		<button class="btn btn-warning oc-icon-trash-o" disabled="disabled"
+			onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+			data-request="onDelete" data-request-confirm="<?= trans('backend::lang.form.action_confirm') ?>"
+			data-trigger-type="enable" data-trigger=".control-list input[type=checkbox]" data-trigger-condition="checked"
+			data-stripe-load-indicator><?= trans('axc.framework::lang.system.delete.label') ?></button>
+
+		<button class="btn btn-primary oc-icon-clipboard" disabled="disabled"
+			onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+			data-request="onDuplicate"
+			data-trigger-type="enable" data-trigger=".control-list input[type=checkbox]" data-trigger-condition="checked"
+			data-stripe-load-indicator><?= trans('axc.framework::lang.system.duplicate.label') ?></button>
+	</div>
+
+	<?= $this->toolbarTrashRender() ?>
+</div>

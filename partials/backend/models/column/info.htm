@@ -1,0 +1,6 @@
+<?
+	$params = @$column->config['axc-params'];
+	$info_title = trans( @$params['infoTitle'] ? :'axc.framework::lang.columns.infoTitle' );
+?>
+<?= $record->title ?><br/>
+<a href="<?= $record->url ?>" class="oc-icon-external-link" target="_blank" title="<?= $info_title ?>" data-tooltip><?= $record->url ?></a>

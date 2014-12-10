@@ -1,0 +1,36 @@
+{
+	"name": "axc/framework-plugin",
+	"description": "AxC Framework Plugin for OctoberCMS",
+	"type": "library",
+	"keywords": ["october", "cms", "plugin", "axc", "framework", "method", "lib"],
+	"homepage": "https://www.alexcarrega.com/p/axc-framework-plugin",
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "Alex Carrega",
+			"email": "contact@alexcarrega.com",
+			"homepage": "http://www.alexcarrega.com",
+			"role": "developer"
+		}
+	],
+	"support": {
+		"email": "support-axc-framework-plugin@alexcarrega.com",
+		"issues": "https://github.com/alexcarrega/axc-framework-plugin/issues",
+		"wiki": "https://github.com/alexcarrega/axc-framework-plugin/wiki",
+		"forum": "@todo",
+		"source": "https://github.com/alexcarrega/axc-framework-plugin/wiki"
+	},
+	"require": {
+		"php": ">=5.4.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "3.7.*",
+		"mockery/mockery": "dev-master",
+		"guzzlehttp/guzzle": "~4.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"AxC\\Framework\\": ""
+		}
+	}
+}

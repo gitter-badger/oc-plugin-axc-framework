@@ -1,0 +1,5 @@
+<div class="panel">
+	<? foreach ($controller->getReportWidgets() as $widget): ?>
+		<?= $widget->render() ?>
+	<? endforeach ?>
+</div>

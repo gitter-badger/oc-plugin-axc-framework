@@ -1,0 +1,30 @@
+<?
+	$validName = ['updatedStat', 'createdStat', 'deletedStat'];
+	if ( !in_array($listColumn->columnName, $validName) ) 
+		throw new \Exception("columnName $listColumn->columnName not valid for timestamp type of config list yaml file. Valid values are: ". implode(', ', $validName), 1);
+
+	$params = @$column->config['axcParams'];
+	$avatar_size = @$params['avatarSize'] ? : 50;
+	$byName = str_replace('Stat', '_by', $listColumn->columnName);
+	$byAvatarName = str_replace('Stat', 'ByAvatar', $listColumn->columnName);
+	$atName = str_replace('Stat', '_at', $listColumn->columnName);
+
+	if ($record->$byName)
+	{
+		$user = $record->$byName;
+		$title = "$user->first_name $user->last_name ($user->login)";
+	}
+	else
+		$title = trans( @$params['titleNoUser'] ? :"axc.framework::lang.columns.timestamp.noUser.label" );
+?>
+<? if ($record->$atName): ?>
+	<div>
+		<img class="img-circle mrg-r-5px" align="left" src="<?= $record->$byAvatarName($avatar_size) ?>" title="<?= $title ?>" alt="<?= $title ?>" data-tooltip />
+		<div class="pdn-t-5px">
+			<strong><?= $record->$atName->toFormattedDateString() ?></strong><br/>
+			<?= $record->$atName->diffForHumans() ?></em>
+		</div>
+	</div>
+<? else: ?>
+	<div class="text-center"><i class="icon-minus"></i></div>
+<? endif ?>

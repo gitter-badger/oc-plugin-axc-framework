@@ -1,0 +1,24 @@
+<? if($action === 'index'): ?>
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button type="button" class="btn btn-danger btn-number"
+				data-request="<?= $column->config['handler']['method'] ?>"
+				data-request-data="id: <?= $record->id ?>, mode: -1"
+				data-tooltip title="<?= trans($column->config['handler']['title']['up']) ?>">
+				<span class="icon-minus"></span>
+			</button>
+		</span>
+
+		<input type="text" class="form-control input-number text-center strong" readonly value="<?= $value ?>">
+
+		<span class="input-group-btn">
+			<button type="button" class="btn btn-success btn-number"
+				data-request="<?= $column->config['handler']['method'] ?>"
+				data-request-data="id: <?= $record->id ?>,mode: +1"
+				data-tooltip title="<?= trans($column->config['handler']['title']['down']) ?>">
+				<span class="icon-plus"></span>
+			</button>	</span>
+	</div>
+<? else: ?>
+	<span class="label label-info strong"><?= $value ?></span>
+<? endif ?>

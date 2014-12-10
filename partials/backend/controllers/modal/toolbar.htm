@@ -1,0 +1,12 @@
+<div data-control="toolbar">
+	<div class="btn-group">
+		<a href="javascript:;" onclick="$.axc_framework_form_modal.createRecord()"
+			class="btn btn-success oc-icon-plus"><?= trans( 'backend::lang.form.create_title', [ 'name' => trans('axc.datamanagement::lang.insurance.content.label.singular') ] ) ?></a>
+		<button class="btn btn-danger oc-icon-trash-o" disabled="disabled" onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+			data-request="onDelete" data-request-confirm="You'll remove the selected items, are you sure?" data-trigger-type="enable" data-trigger=".control-list input[type=checkbox]"
+			data-trigger-condition="checked" data-stripe-load-indicator>Remove</button>
+		<button class="btn btn-primary oc-icon-clipboard" disabled="disabled" onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+			data-request="onDuplicate" data-trigger-type="enable" data-trigger=".control-list input[type=checkbox]"
+			data-trigger-condition="checked" data-stripe-load-indicator>Duplicate</button>
+	</div>
+</div>
