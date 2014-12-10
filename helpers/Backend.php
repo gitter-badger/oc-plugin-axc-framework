@@ -42,7 +42,7 @@ abstract class Backend
 		$controller->addCss('//cdn.jsdelivr.net/flag-icon-css/0.6.0/css/flag-icon.min.css');
 		$controller->addCss('//cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.1/skins/all.css');
 
-		$controller->addCss('/plugins/axc/framework/assets/vendor/class2css/dist/class2.css');
+		$controller->addCss('/plugins/axc/framework/assets/vendor/axc-class2.css/dist/axc-class2.css');
 		$controller->addCss('/plugins/axc/framework/assets/vendor/axc-bootstrap/dist/axc-bootstrap.css');
 
 		$controller->addCss('/plugins/axc/framework/assets/dist/axc-framework.css');

@@ -3,7 +3,7 @@
 	"description": "AxC Framework Plugin for OctoberCMS",
 	"type": "library",
 	"keywords": ["october", "cms", "plugin", "axc", "framework", "method", "lib"],
-	"homepage": "https://www.alexcarrega.com/p/oc-plugin-axc-framework",
+	"homepage": "http://www.alexcarrega.com/p/oc-plugin-axc-framework",
 	"license": "Apache-2.0",
 	"authors": [
 		{
@@ -17,7 +17,7 @@
 		"email": "support-oc-plugin-axc-framework@alexcarrega.com",
 		"issues": "https://github.com/alexcarrega/oc-plugin-axc-framework/issues",
 		"wiki": "https://github.com/alexcarrega/oc-plugin-axc-framework/wiki",
-		"forum": "@todo",
+		"forum": "http://www.alexcarrega.com/f/oc-plugin-axc-framework",
 		"source": "https://github.com/alexcarrega/oc-plugin-axc-framework/wiki"
 	},
 	"require": {
