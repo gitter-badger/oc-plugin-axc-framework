@@ -1,5 +1,5 @@
 {
-	"name": "axc/oc-plugin-axc-framework",
+	"name": "alexcarrega/oc-plugin-axc-framework",
 	"description": "AxC Framework Plugin for OctoberCMS",
 	"type": "library",
 	"keywords": ["october", "cms", "plugin", "axc", "framework", "method", "lib"],

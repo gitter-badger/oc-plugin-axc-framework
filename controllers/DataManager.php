@@ -138,61 +138,89 @@ abstract class DataManager extends \Backend\Classes\Controller
 	{
 		if ($this->action === 'index')
 			$columns['edit'] = [
-				'label'			=> '',
-				'type'			=> 'partial',
-				'sortable'	=> false,
-				'path'			=> '@/plugins/axc/framework/partials/backend/models/column/edit.htm',
-				'cssClass'	=> 'wdt-80px'
+				'label' => '',
+				'type' => 'partial',
+				'sortable' => false,
+				'path' => '@/plugins/axc/framework/partials/backend/models/column/edit.htm',
+				'cssClass' => 'wdt-80px'
 			];
 
 		if ( \Schema::hasColumn($list->model->table, 'position') )
 			$columns['position'] = [
-				'label' 			=>	'axc.framework::lang.columns.position.label',
-				'type'			=> 'partial',
-				'path'		=> '@/plugins/axc/framework/partials/backend/models/column/integer-range.htm',
-				'handler'		=> [
-					'method'	=> 'onPosition',
-					'title'		=> ['up' => 'axc.framework::lang.columns.position.title.up', 'down' => 'axc.framework::lang.columns.position.title.down']
+				'label' => 'axc.framework::lang.columns.position.label',
+				'type' => 'partial',
+				'path' => '@/plugins/axc/framework/partials/backend/models/column/integer-range.htm',
+				'handler' => [
+					'method' => 'onPosition',
+					'title' => ['up' => 'axc.framework::lang.columns.position.title.up', 'down' => 'axc.framework::lang.columns.position.title.down']
 				],
-				'cssClass'	=> 'wdt-200px nolink'
+				'cssClass' => 'wdt-200px nolink'
 			];
 
 		if ( \Schema::hasColumn($list->model->table, 'published') )
 			$columns['published'] = [
-				'label'			=> 'axc.framework::lang.columns.published.label',
-				'type'			=> 'partial',
-				'path' 			=> '@/plugins/axc/framework/partials/backend/models/column/boolean.htm',
-				'handler'		=> [
-					'method'	=> 'onPublished',
-					'title'		=> 'axc.framework::lang.columns.published.handler.title'
+				'label' => 'axc.framework::lang.columns.published.label',
+				'type' => 'partial',
+				'path' => '@/plugins/axc/framework/partials/backend/models/column/boolean.htm',
+				'handler' => [
+					'method' => 'onPublished',
+					'title' => 'axc.framework::lang.columns.published.handler.title'
 				],
-				'cssClass'	=> 'wdt-120px nolink'
+				'cssClass' => 'wdt-120px nolink'
 			];
 
 		if ( \Schema::hasColumn($list->model->table, 'principal') )
 			$columns['principal'] = [
-				'label'			=> 'axc.framework::lang.columns.principal.label',
-				'type'			=> 'partial',
-				'path'			=> '@/plugins/axc/framework/partials/backend/models/column/boolean.htm',
-				'cssClass'	=> 'wdt-120px nolink'
+				'label' => 'axc.framework::lang.columns.principal.label',
+				'type' => 'partial',
+				'path' => '@/plugins/axc/framework/partials/backend/models/column/boolean.htm',
+				'cssClass' => 'wdt-120px nolink'
 			];
 
 		if ( \Schema::hasColumn($list->model->table, 'created_at') )
 			$columns['createdStat'] = [
-				'label'			=>	'axc.framework::lang.columns.timestamp.createdStat.label',
-				'type'			=>	'partial',
-				'path'			=>	'@/plugins/axc/framework/partials/backend/models/column/timestamp.htm',
-				'cssClass'	=>	'wdt-180px'
+				'label' => 'axc.framework::lang.columns.timestamp.createdStat.label',
+				'type' => 'partial',
+				'path' => '@/plugins/axc/framework/partials/backend/models/column/timestamp.htm',
+				'cssClass' => 'wdt-180px'
 			];
 
 		if ( \Schema::hasColumn($list->model->table, 'updated_at') )
 			$columns['updatedStat'] = [
-				'label'			=> 'axc.framework::lang.columns.timestamp.updatedStat.label',
-				'type'			=> 'partial',
-				'path'			=> '@/plugins/axc/framework/partials/backend/models/column/timestamp.htm',
-				'cssClass'	=> 'wdt-180px'
+				'label' => 'axc.framework::lang.columns.timestamp.updatedStat.label',
+				'type' => 'partial',
+				'path' => '@/plugins/axc/framework/partials/backend/models/column/timestamp.htm',
+				'cssClass' => 'wdt-180px'
 			];
 
 		$list->addColumns($columns);
+	}
+
+	public function formExtendFields($form)
+	{
+		if ( \Schema::hasColumn($form->model->table, 'position') )
+			$fields['position'] = [
+				'comment' => 'axc.datamanagement::lang.email.fields.position.comment',
+				'label' => 'axc.framework::lang.fields.position.label',
+				'placeholder' => 'axc.framework::lang.fields.position.placeholder',
+				'required' => true,
+				'type' => 'number'
+			];
+
+		if ( \Schema::hasColumn($form->model->table, 'published') )
+			$fields['published'] = [
+				'comment' => 'axc.datamanagement::lang.abbreviation.fields.published.comment',
+				'label' => 'axc.framework::lang.fields.published.label',
+				'type' => 'switch'
+			];
+
+		if ( \Schema::hasColumn($form->model->table, 'principal') )
+			$fields['principal'] = [
+				'comment'=> 'axc.datamanagement::lang.email.fields.principal.comment',
+				'label' => 'axc.framework::lang.fields.principal.label',
+				'type' => 'switch'
+			];
+
+		$form->addFields($fields);
 	}
 }

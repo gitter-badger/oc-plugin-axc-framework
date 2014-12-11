@@ -1,5 +1,5 @@
 {
-	"name": "axc/oc-plugin-framework-plugin",
+	"name": "alexcarrega/oc-plugin-framework-plugin",
 	"dependencies": {
 		"axc-class2.css": ">=0.0.1",
 		"axc.bootstrap": ">=0.0.1"
