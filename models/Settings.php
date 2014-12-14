@@ -20,8 +20,8 @@ class Settings extends \Model
 	const CATEGORY_AXC = 'axc.framework::lang.system.categories.label';
 
 	/**
-	 * Implement the System.Behaviors.SettingsModel behavior.
-	 * @param array 
+	 * Model extensions.
+	 * @var array
 	 */
 	public $implement = ['System.Behaviors.SettingsModel'];
 

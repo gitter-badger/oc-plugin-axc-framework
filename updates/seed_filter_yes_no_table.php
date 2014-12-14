@@ -8,6 +8,8 @@
 
 namespace AxC\Framework\Updates;
 
+use AxC\Framework\Models\FilterYesNo;
+
 /**
  * Add data to FilterYesNo DB scheme.
  */
@@ -19,7 +21,9 @@ class SeedFilterYesNoTable extends \Seeder
 	 */
 	public function run()
 	{
+		FilterYesNo::truncate();
+
 		foreach (['0' => 'No', '1' => 'Yes'] as $code => $message)
-			\AxC\Framework\Models\FilterYesNo::create( [ 'code' => $code, 'message' => $message ] );
+			FilterYesNo::create( [ 'code' => $code, 'message' => $message ] );
 	}
 }

@@ -29,21 +29,6 @@ abstract class Base extends \Model
 	use \October\Rain\Database\Traits\Validation;
 
 	/**
-	 * Manage the user reference to this model.
-	 */
-	use \AxC\Framework\Traits\UserReferenceManager;
-
-	/**
-	 * Useful methods to init and add data to class member variables. 
-	 */
-	use \AxC\Framework\Traits\ClassMemberUtilities;
-
-	/**
-	 * To manage dynamic scopes of the model to use for the list filter.
-	 */
-	use \AxC\Framework\Traits\ScopeFilter;
-
-	/**
 	 * Values are converted to an instance of Carbon/DateTime objects after fetching.
 	 * @var array
 	 */
@@ -57,45 +42,14 @@ abstract class Base extends \Model
 	 */
 	public function __construct( array $attributes = [] )
 	{
-		$this->_initMember('belongsTo');
-		$this->_initMember('implement');
+		$this->implement[] = 'AxC.Framework.Behaviors.UserReferenceModel';
+		if ( is_array($this->translatable) ) $this->implement[] = 'RainLab.Translate.Behaviors.TranslatableModel';
 
-		$this->_addIfKeyNotExist( 'created_by', ['Backend\Models\User', 'foreignKey' => 'created_by_id'], 'belongsTo');
-		$this->_addIfKeyNotExist( 'updated_by', ['Backend\Models\User', 'foreignKey' => 'updated_by_id'], 'belongsTo');
+		if ( array_key_exists('principal', $this->rules) ) $this->implement[] = 'AxC.Framework.Behaviors.PrincipalAttributeModel';
+		if ( array_key_exists('published', $this->rules) ) $this->implement[] = 'AxC.Framework.Behaviors.PublishedAttributeModel';
+		if ( array_key_exists('principal', $this->rules) ) $this->implement[] = 'AxC.Framework.Behaviors.PrincipalAttributeModel';
 
-		if ( is_array($this->translatable) )
-			$this->_addIfNotPresent('RainLab.Translate.Behaviors.TranslatableModel', 'implement');
-
+		$this->implement = array_unique($this->implement);
 		parent::__construct($attributes);
-	}
-
-	/**
-	 * Return the published records order by position in ASCENDING order.
-	 * @param \October\Rain\Database\Builder $query
-	 * @return array
-	 */
-	public function scopePublished($query)
-	{
-		return $query->wherePublished(true)->orderBy('position', 'ASC')->get()->all();
-	}
-
-	/**
-	 * Update the position of all the records before to save the current ones.
-	 * @return null
-	 */
-	public function beforeSave()
-	{
-		if ($this->position !== null && $this->position !== $this->original['position'] )
-			static::wherePosition($this->position)->where('id', '<>', $this->id)->update( ['position' => -1] );
-	}
-
-	/**
-	 * Finalize the update the position of all the records after the save of the current ones.
-	 * @return null
-	 */
-	public function afterSave()
-	{
-		if ( $this->position !== null && $this->position !== $this->original['position'] )
-			static::wherePosition(-1)->where('id', '<>', $this->id)->update( ['position' => $this->original['position'] ] );
 	}
 }

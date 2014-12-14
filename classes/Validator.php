@@ -46,8 +46,12 @@ class Validator extends \Illuminate\Validation\Validator
 	 */
 	public function validateSelectUnique( $attribute, $value, array $parameters = [] )
 	{
-		list($table, $column, $checkValue) = $parameters;
-		return $value != $checkValue || \DB::table($table)->where( $column, $this->data[$column] )->where($attribute, $value)->where( 'id', '<>', $this->data['id'] )->count() == 0;
+		list($table, $column) = $parameters;
+		$query = \DB::table($table)
+			->where( $column, $this->data[$column] )
+			->where($attribute, $value);
+		if ( @$this->data['id'] ) $query->where('id', '<>', $this->data['id'] );
+		return $query->count() == 0;
 	}
 
 	/**

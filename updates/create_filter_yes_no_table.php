@@ -38,6 +38,6 @@ class CreateFilterYesNoTable extends \October\Rain\Database\Updates\Migration
 	 */
 	public function down()
 	{
-		\Schema::drop('axc_framework_filter_yes_no');
+		\Schema::dropIfExists('axc_framework_filter_yes_no');
 	}
 }

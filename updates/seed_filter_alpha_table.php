@@ -8,6 +8,8 @@
 
 namespace AxC\Framework\Updates;
 
+use AxC\Framework\Models\FilterAlpha;
+
 /**
  * Add data to FilterAlpha DB scheme.
  */
@@ -19,7 +21,9 @@ class SeedFilterAlphaTable extends \Seeder
 	 */
 	public function run()
 	{
+		FilterAlpha::truncate();
+
 		foreach (range('a', 'z') as $code)
-			\AxC\Framework\Models\FilterAlpha::create( [ 'code' => $code, 'message' => strtoupper($code) ] );
+			FilterAlpha::create( [ 'code' => $code, 'message' => strtoupper($code) ] );
 	}
 }

@@ -1,0 +1,24 @@
+<?= $this->breadcrumbRender() ?>
+
+<?= Form::open(['class'=>'layout-item stretch layout-column']) ?>
+	<?= $this->formRender() ?>
+	<? if ( isset($this->relationName) ): ?>
+		<?= $this->relationRender($this->relationName) ?>
+	<? endif ?>
+
+	<div class="form-buttons layout-item fix">
+		<div class="loading-indicator-container">
+			<button type="button" data-request="onSave" data-request-data="redirect:false" data-hotkey="ctrl+s, cmd+s" class="btn btn btn-primary"
+				data-load-indicator="<?= trans( 'backend::lang.form.creating_name', ['name' => $indexTitle] ) ?>">
+				<?= trans('backend::lang.form.create') ?>
+			</button>
+			<button type="button" data-request="onSave" data-request-data="close:true" data-hotkey="ctrl+enter, cmd+enter" class="btn btn-default"
+				data-load-indicator="<?= trans( 'backend::lang.form.creating_name', ['name' => $indexTitle] ) ?>">
+				<?= trans('backend::lang.form.create_and_close') ?>
+			</button>
+			<span class="btn-text">
+				or <a href="<?= Backend::url($cancelURL) ?>"><?= trans('backend::lang.form.cancel') ?></a>
+			</span>
+		</div>
+	</div>
+<?= Form::close() ?>

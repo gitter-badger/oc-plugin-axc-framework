@@ -1,0 +1,6 @@
+<?= $this->breadcrumbRender() ?>
+
+<?= $this->formRenderPreview() ?>
+<? if ( isset($this->relationName) ): ?>
+	<?= $this->relationRender($this->relationName) ?>
+<? endif ?>

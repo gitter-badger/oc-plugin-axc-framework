@@ -38,6 +38,6 @@ class CreateFilterAlphaTable extends \October\Rain\Database\Updates\Migration
 	 */
 	public function down()
 	{
-		\Schema::drop('axc_framework_filter_alpha');
+		\Schema::dropIfExists('axc_framework_filter_alpha');
 	}
 }

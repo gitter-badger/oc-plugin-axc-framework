@@ -17,6 +17,7 @@
 	else
 		$title = trans( @$params['titleNoUser'] ? :"axc.framework::lang.columns.timestamp.noUser.label" );
 ?>
+
 <? if ($record->$atName): ?>
 	<div>
 		<img class="img-circle mrg-r-5px" align="left" src="<?= $record->$byAvatarName($avatar_size) ?>" title="<?= $title ?>" alt="<?= $title ?>" data-tooltip />

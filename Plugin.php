@@ -15,11 +15,10 @@ class Plugin extends \System\Classes\PluginBase
 {
 	/**
 	 * Plugin dependencies.
+	 * @todo
 	 * @var array
 	 */
-	public $require = [
-		'Flynsarmy.Menu'
-	];
+	public $require = ['Flynsarmy.Menu'];
 
 
 	/**
@@ -48,7 +47,7 @@ class Plugin extends \System\Classes\PluginBase
 	}
 
 	/**
-	 * Registers additional markup tags (related to the image functionalities) that can be used in the CMS.
+	 * Register additional markup tags (related to the image functionalities) that can be used in the CMS.
 	 * @return array 
 	 */
 	public function registerMarkupTags()
@@ -59,6 +58,20 @@ class Plugin extends \System\Classes\PluginBase
 				'image_field_thumb'						=> ['AxC\Framework\Helpers\ImageField', 'thumb'							],
 				'image_field_path_settings'		=> ['AxC\Framework\Helpers\ImageField', 'pathFromSettings'	],
 				'image_field_thumb_settings'	=> ['AxC\Framework\Helpers\ImageField', 'thumbFromSettings'	]
+			]
+		];
+	}
+
+	/**
+	 * Register additional form widgets that can be used in the CMS.
+	 * @return array
+	 */
+	public function registerFormWidgets()
+	{
+		return [
+			'AxC\Framework\FormWidgets\IntegerRange' => [
+					'label' => trans('axc.framework::lang.widget.integerrange.label'),
+					'code'  => 'integerrange'
 			]
 		];
 	}

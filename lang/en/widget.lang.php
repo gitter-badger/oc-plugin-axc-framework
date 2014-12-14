@@ -12,5 +12,12 @@ $widget_lang = [
 		'ratio' => ['title' => 'Published ratio']
 	],
 	'total'		=> 'Total',
-	'trashed'	=> 'Trashed'
+	'trashed'	=> 'Trashed',
+	'integerrange' => [
+		'name' => 'Integer Range',
+		'label' => 'Integer Range',
+		'description' => 'Widget to display plus/minus buttons with a text field to insert an integer number',
+		'dec' => ['title' => 'Decrement the value'],
+		'inc' => ['title' => 'Increment the value']
+	]
 ];

@@ -8,6 +8,8 @@
 
 namespace AxC\Framework\Updates;
 
+use AxC\Framework\Models\FilterBoolean;
+
 /**
  * Add data to FilterBoolean DB scheme.
  */
@@ -19,7 +21,9 @@ class SeedFilterBooleanTable extends \Seeder
 	 */
 	public function run()
 	{
+		FilterBoolean::truncate();
+
 		foreach (['0' => 'False', '1' => 'True'] as $code => $message)
-			\AxC\Framework\Models\FilterBoolean::create( [ 'code' => $code, 'message' => $message ] );
+			FilterBoolean::create( [ 'code' => $code, 'message' => $message ] );
 	}
 }

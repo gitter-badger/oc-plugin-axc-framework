@@ -1,27 +1,6 @@
-1.0.1: First version of Framework
-1.0.2.1:
-  - Added UserReference for created_by and updated_by model record 
-  - Added ImageHelper for model image fields
-  - Added BooleanFieldHelper for model boolean fields
-1.0.3.1:
-  - Added Helpers namespace and relative classes
-  - Added partial htm resource for Backend
-1.0.4.15:
-  - Added Set model
-  - create_set_table.php
-  - seed_set_table.php
-1.0.5.3:
-  - Removed Set model
-  - "Added Alpha, YesNo and Boolean models"
-  - create_alpha_table.php
-  - create_yes_no_table.php
-  - create_boolean_table.php
-  - seed_alpha_table.php
-  - seed_yes_no_table.php
-  - seed_boolean_table.php
-1.0.6.9:
-  - "Removed Alpha, YesNo, and Boolean models"
-  - "Added FilterAlpha, FilterYerNo, FilterBoolean and FilterInteger models"
+1.0.1: Initial release
+1.1.1:
+  - Filter model for Scope
   - create_filter_alpha_table.php
   - create_filter_yes_no_table.php
   - create_filter_boolean_table.php
@@ -30,3 +9,6 @@
   - seed_filter_yes_no_table.php
   - seed_filter_boolean_table.php
   - seed_filter_integer_range_table.php
+1.2.1:
+  - Added State values for Italy
+  - seed_states_table.php

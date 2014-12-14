@@ -13,4 +13,4 @@
  * or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-$(function(){"use strict";$("*[data-tooltip]").tooltip(),$("*[data-popover]").ocPopover(),$("*[data-sortable]").sortable(),$("*[data-switch]").bootstrapSwitch(),$('input[type="checkbox"]').iCheck()});
+$(function(){"use strict";$("*[data-tooltip]").tooltip(),$("*[data-popover]").ocPopover(),$("*[data-sortable]").sortable(),$("*[data-switch]").bootstrapSwitch()});

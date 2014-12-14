@@ -2,7 +2,8 @@
 	"name": "alexcarrega/oc-plugin-framework-plugin",
 	"dependencies": {
 		"axc-class2.css": ">=0.0.1",
-		"axc.bootstrap": ">=0.0.1"
+		"axc-bootstrap": ">=0.0.1",
+		"metro-ui-css": ">=2.0.23"
 	},
 	"private": true
 }

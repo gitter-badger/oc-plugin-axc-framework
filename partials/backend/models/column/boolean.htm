@@ -1,4 +1,4 @@
-<? if ( $action === 'index' and @$column->config['handler'] ): ?>
+<? if ( $this->action === 'index' and @$column->config['handler'] ): ?>
 	<a id="<?= "{$column->columnName}_$record->id" ?>"
 		data-request="<?= $column->config['handler']['method'] ?>"
 		data-request-data="id: <?= $record->id ?>"
@@ -7,6 +7,6 @@
 
 <i class="<?= $value ? 'icon-check text-success' : 'icon-times text-danger' ?> icon-4x"></i>
 
-<? if ($action === 'index' and @$column->config['handler'] ): ?>
+<? if ($this->action === 'index' and @$column->config['handler'] ): ?>
 	</a>
 <? endif ?>

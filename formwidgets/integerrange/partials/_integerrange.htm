@@ -1,0 +1,17 @@
+<div id="<?= $this->getId() ?>" class="input-group size-<?= $size ?> <?= $stretch?'layout-relative':'' ?>" data-integerrange>
+	<span class="input-group-btn">
+		<button type="button" class="<?= $this->decClass ?>" onclick="var $n = $(this).parent().next(); $n.val(Number( $n.val() ) - 1);"
+			data-tooltip title="<?= trans('axc.framework::lang.widget.integerrange.dec.title') ?>">
+			<span class="<?= $this->decIconClass ?>"></span>
+		</button>
+	</span>
+
+	<input type="text" name="<?= $name ?>" id="<?= $this->getId('input') ?>" class="form-control input-number text-center"
+		placeholder="<?= $placeholder ?>" value="<?= $value ?>">
+
+	<span class="input-group-btn">
+		<button type="button" class="<?= $this->incClass ?>" onclick="var $n = $(this).parent().prev(); $n.val( Number( $n.val() ) + 1);"
+			data-tooltip title="<?= trans('axc.framework::lang.widget.integerrange.inc.title') ?>">
+			<span class="<?= $this->incIconClass ?>"></span>
+		</button>	</span>
+</div>

@@ -8,6 +8,8 @@
 
 namespace AxC\Framework\Updates;
 
+use AxC\Framework\Models\FilterIntegerRange;
+
 /**
  * Add data to FilterIntegerRange DB scheme.
  */
@@ -19,11 +21,13 @@ class SeedFilterIntegerRangeTable extends \Seeder
 	 */
 	public function run()
 	{
+		FilterIntegerRange::truncate();
+
 		$start_range = 0;
 		$end_range = 90; 
 		$step = 10;
 		$offset = 1;
 		foreach (range($start_range, $end_range, $step) as $start)
-			\AxC\Framework\Models\FilterIntegerRange::create( [ 'start' => $start + $offset, 'end' => $start + $step, 'message' => ($start + $offset) .' - '. ($start + $step) ] );
+			FilterIntegerRange::create( [ 'start' => $start + $offset, 'end' => $start + $step, 'message' => ($start + $offset) .' - '. ($start + $step) ] );
 	}
 }

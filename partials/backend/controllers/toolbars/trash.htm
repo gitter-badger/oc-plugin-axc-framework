@@ -1,6 +1,6 @@
 <div data-control="toolbar">
 	<div class="btn-group">
-		<button class="btn btn-warning oc-icon-magic" <?= !$controller->widget->list->model->onlyTrashed()->get()->isEmpty() ? : 'disabled="disabled"' ?>
+		<button class="btn btn-warning oc-icon-magic" <?= !$this->widget->list->model->onlyTrashed()->get()->isEmpty() ? : 'disabled="disabled"' ?>
 			data-request="onEmptyDeleted" data-request-confirm="<?= trans('backend::lang.form.action_confirm') ?>"
 			data-stripe-load-indicator><?= trans('axc.framework::lang.system.empty.label') ?></button>
 	</div>

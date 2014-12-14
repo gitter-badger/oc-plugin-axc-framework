@@ -39,6 +39,6 @@ class CreateFilterIntegerRangeTable extends \October\Rain\Database\Updates\Migra
 	 */
 	public function down()
 	{
-		\Schema::drop('axc_framework_filter_integer_range');
+		\Schema::dropIfExists('axc_framework_filter_integer_range');
 	}
 }
